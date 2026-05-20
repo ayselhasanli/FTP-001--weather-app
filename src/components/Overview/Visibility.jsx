@@ -10,19 +10,17 @@ const Visibility = ({data}) => {
         <img src={VisibilityImg} alt="" />
       </div>
       <div className="grid grid-cols-12 items-center mt-[25px]">
-        <div className="col-span-6">
-          <span className="text-xl font-semibold">
-            {data.todayOverview.visibility.value}
-          </span>
+        <div className="col-span-3">
+          <span className="text-xl font-semibold">{data.visibility}</span>
         </div>
-        <div className="col-span-6">
+        <div className="col-span-9">
           <ul className="flex gap-[10px] items-center">
             <li>
               <img src={EyeIcon} alt="" />
             </li>
             <li>
               <span className="text-xs text-[var(--light-gray)]">
-                {data.todayOverview.visibility.description}
+                Lorem ipsum dolor sit amet consectetur.
               </span>
             </li>
           </ul>

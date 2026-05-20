@@ -8,7 +8,7 @@ const UVIndex = ({ data }) => {
       <UVChart />
       <div className="text-center pb-[30px]">
         <span className="text-white font-semibold text-xl">
-          {data.todayOverview.uvIndex.value}
+          5.50 UV
         </span>
       </div>
     </div>

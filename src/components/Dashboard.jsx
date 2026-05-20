@@ -1,4 +1,5 @@
 import React from "react";
+import Navbar from "./Navbar.jsx"
 import DashboardHeader from "./DashboardHeader";
 import DailyCard from "./Forecast/DailyCard";
 import RainChart from "./Sidebar/RainChart";
@@ -17,23 +18,29 @@ const Dashboard = () => {
   const [weather, setWeather] = useState(null);
   const [error, setError] = useState(null);
   const [day, setDay] = useState("");
+  const [city, setCity] = useState("")
 
   useEffect(() => {
-    fetchWeatherData("Baku")
+    if (!city) return
+
+    fetchWeatherData(city)
       .then((data) => {
         setWeather(data);
       })
       .catch((err) => {
         setError("smth wrong");
       });
-  }, []);
+  }, [city]);
 
   return (
     <>
+      <Navbar setCity={setCity} city={city}/>
       <DashboardHeader />
       <div className="grid grid-cols-12 p-4 bg-[var(--bg-main)] gap-4">
         <div className="col-span-3">
-          <CurrentWeather />
+          {weather?.list && weather.list.length > 0 && (
+            <CurrentWeather data={weather.list[0]} />
+          )}
         </div>
         <div className="col-span-6">
           <div className="flex flex-row overflow-x-auto gap-4 w-full whitespace-nowrap scrollbar-hide">
@@ -42,13 +49,15 @@ const Dashboard = () => {
                 display: none}
                 `}
             </style>
-            {weather?.list?.filter((item) => item.dt_txt.includes("12:00:00")).map((data) => {
-              return (
-                <>
-                  <DailyCard data={data} />
-                </>
-              );
-            })}
+            {weather?.list
+              ?.filter((item) => item.dt_txt.includes("12:00:00"))
+              .map((data) => {
+                return (
+                  <>
+                    <DailyCard data={data} />
+                  </>
+                );
+              })}
           </div>
         </div>
         <div className="col-span-3">
@@ -60,12 +69,20 @@ const Dashboard = () => {
           <span className="text-white">Today's overview</span>
           <div className="grid grid-cols-12 gap-4 pt-4">
             <div className="col-span-4">
-              <WindStatus data={weatherData} />
-              <Humidity data={weatherData} />
+              {weather?.list && weather.list.length > 0 && (
+                <>
+                  <WindStatus data={weather.list[0]} />
+                  <Humidity data={weather.list[0]} />
+                </>
+              )}
             </div>
             <div className="col-span-4">
-              <UVIndex data={weatherData} />
-              <Visibility data={weatherData} />
+              {weather?.list && weather.list.length > 0 && (
+                <>
+                  <UVIndex data={weather.list[0]} />
+                  <Visibility data={weather.list[0]} />
+                </>
+              )}
             </div>
             <div className="col-span-4"></div>
           </div>

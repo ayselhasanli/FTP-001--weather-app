@@ -6,8 +6,19 @@ import moonIcon from "../assets/icons/moon.svg";
 import userPic from "../assets/icons/profile.svg";
 
 import { fetchWeatherData } from "../services/weatherService";
+import { useState } from "react";
 
-function Navbar() {
+function Navbar({ setCity, city }) {
+  const [inputValue, setInputValue] = useState("");
+
+  const handleInputValue = (e) => {
+    e.preventDefault();
+
+    if (inputValue.trim() !== "") {
+      setCity(inputValue);
+    }
+  };
+
   return (
     <div className="flex items-center justify-between w-full bg-[var(--bg-main)] text-white p-4">
       <div className="flex items-center gap-4">
@@ -21,22 +32,26 @@ function Navbar() {
 
         <div className="flex items-center gap-2 text-gray-300 text-sm">
           <img src={locationIcon} alt="location" />
-          <span className="font-medium">Dhaka, Bangladesh</span>
+          <span className="font-medium">{city}</span>
         </div>
       </div>
 
-      <div className="w-[492px] h-[46px] relative">
-        <img
-          className="absolute left-4 top-1/2 -translate-y-1/2"
-          src={searchIcon}
-          alt="search"
-        />
+      <form action="" className="w-[492px] h-[46px] relative" onSubmit={handleInputValue}>
+        <button type="submit">
+          <img
+            className="absolute left-4 top-1/2 -translate-y-1/2"
+            src={searchIcon}
+            alt="search"
+          />
+        </button>
         <input
           type="text"
+          value={inputValue}
+          onChange={(e) => setInputValue(e.target.value)}
           placeholder="Search City"
           className="w-full h-full bg-[var(--bg-card)] text-sm text-gray-200 pl-11 pr-4 rounded-xl focus:outline-none placeholder:text-gray-400"
         />
-      </div>
+      </form>
 
       <div className="flex items-center gap-4">
         <div className="bg-[var(--bg-card)] w-[115px] h-[46px] rounded-full p-1 flex items-center justify-end cursor-pointer border border-gray-700">

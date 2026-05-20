@@ -9,20 +9,20 @@ const Humidity = ({data}) => {
       <div className="flex justify-center my-[45px]">
         <img src={HumidityImg} alt="" />
       </div>
-      <div className="flex gap-[42px] items-center mt-[25px]">
-        <div>
+      <div className="grid grid-cols-12 mt-[25px]">
+        <div className="col-span-3">
           <span className="text-xl font-semibold">
-            {data.todayOverview.humidity.value}
+            {data.main.humidity} %
           </span>
         </div>
-        <div>
+        <div className="col-span-9">
           <ul className="flex gap-[10px] items-center">
             <li>
               <img src={HumidityIcon} alt="" />
             </li>
             <li>
               <span className="text-xs text-[var(--light-gray)]">
-                {data.todayOverview.humidity.description}
+                Lorem ipsum dolor sit amet consectetur.
               </span>
             </li>
           </ul>

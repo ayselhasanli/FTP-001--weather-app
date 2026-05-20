@@ -9,12 +9,12 @@ const WindStatus = ({data}) => {
       <ul className='flex justify-between py-4'>
         <li>
           <span className="text-base font-semibold text-white">
-            {data.todayOverview.windStatus.value}
+            {data.wind.speed} km/h
           </span>
         </li>
         <li className='text-right'>
           <span className="text-white">
-            {data.todayOverview.windStatus.time}
+            {data.wind.gust} AM
           </span>
         </li>
       </ul>
