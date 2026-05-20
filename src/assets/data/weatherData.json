@@ -1,0 +1,87 @@
+{
+  "currentLocation": "Dhaka, Bangladesh",
+  "forecast": {
+    "activeDay": {
+      "day": "Friday",
+      "time": "11:45 AM",
+      "temperature": 16,
+      "condition": "Cloudy with Sun",
+      "icon": "sunny-cloudy.svg",
+      "details": {
+        "realFeel": 18,
+        "windDirection": "N-E",
+        "windSpeed": "6-7km/h",
+        "pressure": "100MB",
+        "humidity": "51%",
+        "sunrise": "5:30AM",
+        "sunset": "6:45"
+      }
+    },
+    "nextDays": [
+      {
+        "day": "SAT",
+        "temperature": 10,
+        "icon": "/weather-icons/rainy-sunny-1.svg"
+      },
+      { "day": "SUN", "temperature": 15, "icon": "/weather-icons/sunny.svg" },
+      {
+        "day": "MON",
+        "temperature": 11,
+        "icon": "/weather-icons/rainy-sunny-3.svg"
+      },
+      { "day": "TUE", "temperature": 10, "icon": "/weather-icons/rainy.svg" },
+      { "day": "WED", "temperature": 12, "icon": "/weather-icons/rainy-2.svg" },
+      { "day": "THU", "temperature": 10, "icon": "/weather-icons/windy.svg" }
+    ]
+  },
+  "todayOverview": {
+    "windStatus": {
+      "value": "7.50 km/h",
+      "time": "6:20 AM",
+      "chartData": [4, 5, 6, 7, 7.5, 7, 6, 5, 4, 3, 2, 3, 4, 5]
+    },
+    "uvIndex": {
+      "value": "5.50 UV",
+      "level": "Moderate"
+    },
+    "humidity": {
+      "value": "84%",
+      "description": "The dew point is 27° right now"
+    },
+    "visibility": {
+      "value": "04 km",
+      "description": "Haze is affecting visibility"
+    }
+  },
+  "chanceOfRain": {
+    "labels": ["Rainy", "Sunny", "Heavy"],
+    "timeSlots": ["10AM", "11AM", "12AM", "01PM", "02PM", "03PM"],
+    "data": [70, 65, 85, 45, 78, 35]
+  },
+  "otherCities": [
+    {
+      "country": "China",
+      "name": "Beijing",
+      "condition": "Cloudy",
+      "icon": "/weather-icons/rainy.svg"
+    },
+    {
+      "country": "US",
+      "name": "California",
+      "condition": "Windly",
+      "icon": "/weather-icons/windy.svg"
+    },
+    {
+      "country": "Dubai",
+      "name": "Arab Emirates",
+      "condition": "Mostly Sunny",
+      "icon": "/weather-icons/sunny.svg"
+    },
+    {
+      "country": "Canada",
+      "name": "Charlottetown",
+      "condition": "Light SnowShower",
+      "icon": "/weather-icons/light-snow.svg"
+    }
+  ]
+}

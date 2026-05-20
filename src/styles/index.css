@@ -1,0 +1,19 @@
+@import "tailwindcss";
+
+:root {
+  --bg-main: #0b0c10;           
+  --bg-card: #1b1f29;          
+  --bg-card-hover: #232835;    
+  --bg-active-card: #b5cbe4;   
+  --text-active-card: #0b0c10; 
+  --text-white: #ffffff;       
+  --text-gray-light: #d8e9f9;  
+  --text-gray-muted: #9ca3af;  
+  --accent-blue: #3b82f6;      
+  --accent-yellow: #f59e0b;    
+  --light-blue: #bbd7ec;
+  --medium-blue: #aecadf;
+  --light-gray: #818085;
+  --gray: #777777;
+  --dark-gray: #39393A
+}
