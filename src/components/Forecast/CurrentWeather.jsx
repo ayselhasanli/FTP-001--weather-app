@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import sunnyWindyIcon from "../../assets/icons/sunny-windy.svg";
 import weatherData from "../../assets/data/weatherData.json";
 
+import { fetchWeatherData } from "../../services/weatherService";
+
 const CurrentWeather = () => {
+
   return (
     <div className=" bg-[var(--light-blue)]  rounded-3xl">
       <ul className="flex p-[15px] justify-between rounded-tl-3xl rounded-tr-3xl bg-[var(--medium-blue)] text-base font-semibold text-active-card">

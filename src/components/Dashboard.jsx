@@ -9,8 +9,25 @@ import WindStatus from "./Overview/WindStatus";
 import UVIndex from "./Overview/UVIndex";
 import Humidity from "./Overview/Humidity";
 import Visibility from "./Overview/Visibility";
+import { useState } from "react";
+import { useEffect } from "react";
+import { fetchWeatherData } from "../services/weatherService";
 
 const Dashboard = () => {
+  const [weather, setWeather] = useState(null);
+  const [error, setError] = useState(null);
+  const [day, setDay] = useState("");
+
+  useEffect(() => {
+    fetchWeatherData("Baku")
+      .then((data) => {
+        setWeather(data);
+      })
+      .catch((err) => {
+        setError("smth wrong");
+      });
+  }, []);
+
   return (
     <>
       <DashboardHeader />
@@ -19,8 +36,13 @@ const Dashboard = () => {
           <CurrentWeather />
         </div>
         <div className="col-span-6">
-          <div className="grid grid-cols-12 gap-4">
-            {weatherData.forecast.nextDays.map((data) => {
+          <div className="flex flex-row overflow-x-auto gap-4 w-full whitespace-nowrap scrollbar-hide">
+            <style>
+              {`div::-webkit-scrollbar{
+                display: none}
+                `}
+            </style>
+            {weather?.list?.filter((item) => item.dt_txt.includes("12:00:00")).map((data) => {
               return (
                 <>
                   <DailyCard data={data} />
@@ -39,11 +61,11 @@ const Dashboard = () => {
           <div className="grid grid-cols-12 gap-4 pt-4">
             <div className="col-span-4">
               <WindStatus data={weatherData} />
-              <Humidity data={weatherData}/>
+              <Humidity data={weatherData} />
             </div>
             <div className="col-span-4">
               <UVIndex data={weatherData} />
-              <Visibility data={weatherData}/>
+              <Visibility data={weatherData} />
             </div>
             <div className="col-span-4"></div>
           </div>

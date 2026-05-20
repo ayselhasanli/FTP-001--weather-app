@@ -5,6 +5,8 @@ import searchIcon from "../assets/icons/search.svg";
 import moonIcon from "../assets/icons/moon.svg";
 import userPic from "../assets/icons/profile.svg";
 
+import { fetchWeatherData } from "../services/weatherService";
+
 function Navbar() {
   return (
     <div className="flex items-center justify-between w-full bg-[var(--bg-main)] text-white p-4">
