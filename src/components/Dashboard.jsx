@@ -18,7 +18,7 @@ const Dashboard = () => {
   const [weather, setWeather] = useState(null);
   const [error, setError] = useState(null);
   const [day, setDay] = useState("");
-  const [city, setCity] = useState("")
+  const [city, setCity] = useState("Baku")
 
   useEffect(() => {
     if (!city) return

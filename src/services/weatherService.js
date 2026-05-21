@@ -1,6 +1,6 @@
 import axios from "axios";
+const API_KEY = import.meta.env.VITE_WEATHERAPI_KEY;
 
-const API_KEY = "dc1578c96f4fba49e75e85f6daffd71a";
 const BASE_URL = `https://api.openweathermap.org/data/2.5/forecast`;
 
 export const fetchWeatherData = async(cityName) => {
